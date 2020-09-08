@@ -12,8 +12,9 @@ print("left makes cursor go left; right makes the cursor go right")
 print("stop quits the program; clear creates an X where the cursor is")
 print("reset will reset the screen")
 # initializes etcher sketch
-dimensional_size = input("Input dimesion size of Etcher Sketch = ")
-etcher_screen = [[" "] * dimensional_size for i in range(dimensional_size)]
+dimensional_size = int(input("Input dimesion size of Etcher Sketch = "))
+etcher_screen = [[" "]*dimensional_size for _ in range(dimensional_size)]
+
 etcher_string = ""
 cursor_position = [0, 0]
 move_command = ""
@@ -33,7 +34,7 @@ while(move_command != "stop"):
       etcher_string = ""
   # gets user input for move_command and executes it
   print("stop will quit program; clear will create X; reset clears screen")
-  move_command = str(raw_input("Which direction to move? ")).lower()
+  move_command = str(input("Which direction to move? ")).lower()
   system('clear')
   print("You chose " + move_command)
   if move_command == "clear":
@@ -46,7 +47,7 @@ while(move_command != "stop"):
     else:
       cursor_position[1] -= 1
   elif move_command == "right":
-    if cursor_position[1] == dimensional_size:
+    if cursor_position[1] == dimensional_size - 1:
       print("Error: can't go right")
     else:
       cursor_position[1] += 1
@@ -56,7 +57,7 @@ while(move_command != "stop"):
     else:
       cursor_position[0] -= 1
   elif move_command == "down":
-    if cursor_position[0] == dimensional_size:
+    if cursor_position[0] == dimensional_size - 1:
       print("Error: can't go down")
     else:
       cursor_position[0] += 1
