@@ -2,12 +2,11 @@ hw01.py is an Etcher Sketch Program created by Eric Morse.
 It asks user for dimensions of Etcher Sketch board (board is square so it only asks for one).  
 It creates a blank board and allows user to move the cursor by typing commands listed below.  
 *Don't use quotes when typing in the command during input prompt*.  
-*prompt is case insensitive*.  
+*input commands are case insensitive*.  
 "up" moves the cursor up.  
 "down" moves the cursor down.  
 "left" moves the cursor left.  
 "right" moves the cursor right.  
-"clear" makes an X appear on the location of the cursor.  
 "reset" wipes the screen to a blank etcher sketch screen again.  
 "stop" quits the program (needed to exit the while loop).  
 

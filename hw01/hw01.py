@@ -9,7 +9,7 @@ print("Etcher Sketch program created by Eric Morse")
 print("program will ask for a command for the cursor")
 print("up makes cursor go up; down makes the cursor go down")
 print("left makes cursor go left; right makes the cursor go right")
-print("stop quits the program; clear creates an X where the cursor is")
+print("stop quits the program")
 print("reset will reset the screen")
 # initializes etcher sketch
 dimensional_size = int(input("Input dimesion size of Etcher Sketch = "))
@@ -33,13 +33,12 @@ while(move_command != "stop"):
       print(etcher_string)
       etcher_string = ""
   # gets user input for move_command and executes it
-  print("stop will quit program; clear will create X; reset clears screen")
+  print("up moves up; down moves down; left moves left; right moves right")
+  print("stop will quit program; reset clears screen")
   move_command = str(input("Which direction to move? ")).lower()
   system('clear')
   print("You chose " + move_command)
-  if move_command == "clear":
-    etcher_screen[cursor_position[0]][cursor_position[1]] = "X"
-  elif move_command == "reset":
+  if move_command == "reset":
     etcher_screen = [[" "] * dimensional_size for i in range(dimensional_size)]
   elif move_command == "left":
     if cursor_position[1] == 0:
