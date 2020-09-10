@@ -46,21 +46,25 @@ while(move_command != "stop"):
       print("Error: can't go left")
     else:
       cursor_position[1] -= 1
+      etcher_screen[cursor_position[0]][cursor_position[1]] = "X"
   elif move_command == "right":
     if cursor_position[1] == dimensional_size - 1:
       print("Error: can't go right")
     else:
       cursor_position[1] += 1
+      etcher_screen[cursor_position[0]][cursor_position[1]] = "X"
   elif move_command == "up":
     if cursor_position[0] == 0:
       print("Error: can't go up")
     else:
       cursor_position[0] -= 1
+      etcher_screen[cursor_position[0]][cursor_position[1]] = "X"
   elif move_command == "down":
     if cursor_position[0] == dimensional_size - 1:
       print("Error: can't go down")
     else:
       cursor_position[0] += 1
+      etcher_screen[cursor_position[0]][cursor_position[1]] = "X"
   elif move_command != "stop": print("Invalid command")
   if move_command != "stop": 
     print("cursor position=  " + str(cursor_position[0]) + " " + str(cursor_position[1]))
