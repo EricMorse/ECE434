@@ -25,6 +25,8 @@ The program does not use any 3rd party libraries, so no compiler flags or specia
 |  2 | Used hw01 directory
 |  2 | ReadMe.md included
 |  0 | gitLearn and gitLearnFork
-| 18 | **Total**
+| 16 | **Total**
 
 Looks good.  You name isn't in the gitLearn repos
+
+-2 need to add MarkAYoder to you git repo.
