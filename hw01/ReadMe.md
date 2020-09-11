@@ -14,3 +14,17 @@ The program does not use any 3rd party libraries, so no compiler flags or specia
 "python3 hw01.py" will launch the program.  
 
 
+# hw01 grading
+
+| Points      | Description |
+| ----------- | ----------- |
+|  8 | Etch-a-Sketch works
+|  2 | Code documented
+|  2 | Includes #!/usr/bin/env python3 and chmod +x
+|  2 | install.sh included if needed
+|  2 | Used hw01 directory
+|  2 | ReadMe.md included
+|  0 | gitLearn and gitLearnFork
+| 18 | **Total**
+
+Looks good.  You name isn't in the gitLearn repos
