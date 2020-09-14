@@ -56,6 +56,6 @@ gpio_fd = c_functions.gpio_fd_open(gpio, 'O_RDONLY')
 while(keepgoing):
   toggle = not toggle
   c_functions.gpio_set_value(gpio, toggle)
-  time.sleep(onOffTime/1000000.0)
+  time.sleep(onOffTime/100000.0)
 
 c_functions.gpio_fd_close(gpio_fd)
