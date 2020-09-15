@@ -82,8 +82,10 @@ int main(int argc, char** argv)
 	printf("...direction set to output\n");
 			
 	gpio_fd = gpio_fd_open(gpio, O_RDONLY);
-
-	//Run an infinite loop - will require Ctrl-C to exit this program
+        //lseek line version commented out
+        //gpio_fd = lseek(gpio, onOffTime, 0);
+	
+        //Run an infinite loop - will require Ctrl-C to exit this program
 	while(keepgoing)
 	{
 		toggle = !toggle;
