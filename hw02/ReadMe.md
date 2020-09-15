@@ -7,6 +7,9 @@ While a button is pushed, the LED that is immediately to the left of the button 
 ### Instructions
 Push the buttons, the lights will turn off when the corresponding button to the right of it is released
 
+### Execution
+hw02.py takes absolutely no additional arguments, so ./hw02 runs the program.
+
 # Homework 2: Measuring a gpio pin
 
 ### Answer to Questions
