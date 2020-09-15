@@ -103,10 +103,12 @@ Sleep Time| OpenFile Period(ms)| lseek() Period(ms)
 
 ### Toggle 1 bit comparison
 C 1bit| Python 1bit| Shell 1 bit
+------|------------|-------------
 3.36 us|17 us| 100 us
 
 ### Toggle 2 bit comparison
 C 2bit| Python 2 bit
+------|--------------
 3.6 us|18 us
 
 # Homework2 : Security
