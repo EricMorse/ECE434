@@ -21,7 +21,7 @@ sleep attempts | See Table 2-1| See Table 2-2| See Table 2-3
 is periodstable|yes|yes |yes
 stable in vi   |no|yes |yes
 clean up impact|No |NA |NA
-sh lessenperiod| |NA |NA
+sh lessenperiod|Yes |NA |NA
 shortest period|18.6 |0.42 |0.36
 
 **Explanation of Processor burden on why they differ**
@@ -130,3 +130,6 @@ The rightmost button will clear the board of X.
 
 Leftmost|next|middle|right of middle|rightmost
 up|down|left|right|clear
+
+### Execution of code
+There are no special library calls.  ./hw01 8 will create an 8 by 8 etcher sketch board.  Substitute the number 8 with any integer to change the size of the etcher sketch board.

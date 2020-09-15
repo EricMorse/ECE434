@@ -25,6 +25,8 @@ MAX_BUF = 64
 ADC_BUF = 1024
 SYSFS_AIN_DIR = "/sys/devices/ocp.2/helper.11"
 keepgoing = 1
+
+#interrupt handler to catch Ctrl-C to prevent file corruption
 def signal_handler(sig, frame):
   print("Ctrl-C pressed, cleaning up and exiting..")
   global keepgoing 

@@ -45,7 +45,7 @@ def button_response(button, led):
       print("Button3 pressed")
     elif button == button4:
       print("Button4 pressed")
-    #GPIO.wait_for_edge(button, GPIO.BOTH)
+    GPIO.wait_for_edge(button, GPIO.BOTH)
   else:
     GPIO.output(led, 0)
   return 0;
