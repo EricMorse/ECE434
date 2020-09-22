@@ -18,13 +18,9 @@ alert1 = "P9_21"
 alert2 = "P9_22"
 GPIO.setup(alert1, GPIO.IN, GPIO.PUD_UP)
 GPIO.setup(alert2, GPIO.IN, GPIO.PUD_UP)
-T_low = 0x18
-T_high = 0x1A
-if sys.argv[1]:
-  T_low = sys.argv[1]
 
-if sys.argv[2]:
-  T_high = sys.argv[2]
+T_low = sys.argv[1]
+T_high = sys.argv[2]
 
 # sets the temp sensor settings
 system('i2cset -y 2 0x48 1 0x02')  # sets config register for 0x48
