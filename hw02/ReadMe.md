@@ -1,3 +1,19 @@
+# hw02 grading
+
+| Points      | Description |
+| ----------- | ----------- |
+|  2 | Buttons and LEDs 
+|  7 | Etch-a-Sketch works
+|    | Measuring a gpio pin on an Oscilloscope 
+|  4 | Questions answered
+|  0 | Table complete  *lseek is in the wrong place, so your times are the same.*
+|  2 | gpiod
+|    | Security     *Did you do this part?*
+|  0 | ssh port
+|  1 | iptables
+|  0 | fail2ban
+| 16 | **Total**
+
 # Homework 2: Buttons and LEDs
 
 ### Description
@@ -8,7 +24,7 @@ While a button is pushed, the LED that is immediately to the left of the button 
 Push the buttons, the lights will turn off when the corresponding button to the right of it is released
 
 ### Execution
-hw02.py takes absolutely no additional arguments, so ./hw02 runs the program.
+hw02.py takes absolutely no additional arguments, so ./hw02*.py* runs the program.
 
 # Homework 2: Measuring a gpio pin
 
