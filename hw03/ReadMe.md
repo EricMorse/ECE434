@@ -4,14 +4,15 @@
 The two TMP101s will trigger an alert and display temperature during an alert when T_high or T_low are reached.
 
 ### Instructions
-Push finger against either TMP101 to heat them up and trigger an alert.  Release finger to reduce temperature.
+Push finger against either TMP101 to heat them up and trigger an alert.  Release finger to reduce temperature.  A second alert will trigger when the temperature gets too low.
 
 ### Execution
-*hw03.py* takes two arguments.  The first is T_low temperature setting.  The second is T_high temperature setting.
+**hw03.py** takes two arguments.  The first is T_low temperature setting.  The second is T_high temperature setting.
 "./hw03.py 0x19 0x1a" will execute the code with 0x19 as T_low alert setting and 0x1a as T_high alert.
 
-*readi2c.py* reads the temperatures in python and does not take arguments.
-*readi2c.sh* reads the temperatures in shell and does not take arguments.
+**readi2c.py** reads the temperatures in python and does not take arguments.
+
+**readi2c.sh** reads the temperatures in shell and does not take arguments.
 
 # Homework 3: Etch A Sketch
 
