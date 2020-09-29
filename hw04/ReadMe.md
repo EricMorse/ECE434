@@ -63,7 +63,7 @@ Sleep Time(s) | new program Period(ms)| old program Period(ms)
 0.00002|0.21|2.3
 0.00001|0.18|2.3
 usleep set to 0|0.16|2.3
-no usleep|0.0003
+no usleep|0.0003|NA
 Is not using usleep faster? yes, commenting out usleep makes period faster than usleep set to 0.
 
 # Homework 4: i2c via Kernel Driver
@@ -95,4 +95,16 @@ There are no special library calls or arguments for this program.
 You will need to open a web browser to 192.168.7.2:8081 to access the webpage.
 
 # Homework 4: 2.4 inch TFT LCD Display
-needs to be done
+It uses SP0
+### Display Images
+It displays the image of the beagle.
+![Boris the Beagle](https://github.com/EricMorse/ECE434/hw04/beagle.JPG)
+
+### Play Movies
+It plays the movie and rotates.  Below is a picture.
+![Space shot](https://github.com/EricMorse/ECE434/hw04/space.JPG)
+### Generate Text
+It displays the picture and the text.
+![Tux](https://github.com/EricMorse/ECE434/hw04/tux.JPG)
+
+
