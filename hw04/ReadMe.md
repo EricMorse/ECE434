@@ -98,13 +98,13 @@ You will need to open a web browser to 192.168.7.2:8081 to access the webpage.
 It uses SP0
 ### Display Images
 It displays the image of the beagle.
-![Boris the Beagle](https://github.com/EricMorse/ECE434/hw04/beagle.JPG)
+![Boris the Beagle](https://github.com/EricMorse/ECE434/tree/master/hw04/beagle.JPG)
 
 ### Play Movies
 It plays the movie and rotates.  Below is a picture.
-![Space shot](https://github.com/EricMorse/ECE434/hw04/space.JPG)
+![Space shot](https://github.com/EricMorse/ECE434/tree/master/hw04/space.JPG)
 ### Generate Text
 It displays the picture and the text.
-![Tux](https://github.com/EricMorse/ECE434/hw04/tux.JPG)
+![Tux](https://github.com/EricMorse/ECE434/tree/master/hw04/tux.JPG)
 
 
