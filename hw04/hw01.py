@@ -6,45 +6,61 @@ from flask import Flask, render_template, request
 import smbus
 import time
 
+bus = smbus.SMBus(2)	# Use i2c bus 2
+matrix = 0x70		# Use Address 0x70
+
+# Returns modified hex number
+def modifyBit(number, position, value):
+  mask = 1 << position
+  return (number & ~mask) | ((value << position) & mask)
+
 app = Flask(__name__)
-upCount = 0
-downCount = 0
-rightCount = 0
-leftCount = 0
+LED_screen = [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+]
+
+# initializes etcher LED screen
+bus.write_byte_data(matrix, 0x21, 0)	# Starts oscillator (page 10)
+bus.write_byte_data(matrix, 0x81, 0) 	# Display on, blink off (page 11)
+bus.write_byte_data(matrix, 0xe7, 0)	# Full Brightness (page 15)
+
+bus.write_i2c_block_data(matrix, 0, LED_screen) # clears LED screen
+cursor_position = [0,0]
+
 @app.route("/")
 def index():
-	global upCount
-	global downCount
-	global leftCount
-	global rightCount
+	global cursor_position
+	global LED_screen
 	templateData = {
 		'title' : 'Etcher Sketch',
-		'up' : upCount,
-		'down' : downCount,
-		'right' : rightCount,
-		'left' : leftCount,
 	}
 	return render_template('index.html', **templateData)
 
 @app.route("/<action>")
 def action(action):
-	global upCount
-	global downCount
-	global rightCount
-	global leftCount
+	global LED_screen
+	global cursor_position
 	if action == "up":
-		upCount=upCount+1
+		if cursor_position[0] != 0:
+			cursor_position[0] -= 1
+			LED_screen[cursor_position[1]*2] = modifyBit(LED_screen[cursor_position[1]*2], 7-cursor_position[0], 1)
+			bus.write_i2c_block_data(matrix, 0, LED_screen)
 	if action == "down":
-		downCount=downCount+1
+		if cursor_position[0] != 7:
+			cursor_position[0] += 1
+			LED_screen[cursor_position[1]*2] = modifyBit(LED_screen[cursor_position[1]*2], 7-cursor_position[0], 1)
+			bus.write_i2c_block_data(matrix, 0, LED_screen)
 	if action == "left":
-		leftCount=leftCount+1
+		if cursor_position[1] != 0:
+			cursor_position[1] -= 1
+			LED_screen[cursor_position[1]*2] = modifyBit(LED_screen[cursor_position[1]*2], 7-cursor_position[0], 1)
+			bus.write_i2c_block_data(matrix, 0, LED_screen)
 	if action == "right":
-		rightCount=rightCount+1
+		if cursor_position[1] != 7:
+			cursor_position[1] += 1
+			LED_screen[cursor_position[1]*2] = modifyBit(LED_screen[cursor_position[1]*2], 7-cursor_position[0], 1)
+			bus.write_i2c_block_data(matrix, 0, LED_screen)
 	templateData = {
-		'up' : upCount,
-		'down' : downCount,
-		'left' : leftCount,
-		'right' : rightCount,
 	}
 	return render_template('index.html', **templateData)
 

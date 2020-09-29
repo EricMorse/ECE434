@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
 
    if (argc < 2){
        printf("Usage: %s <on/off time in us>\n\n", argv[0]);
-       printf("toggles GPIO_50 or pin 14\n\n");
+       printf("toggles GPIO_50 or pin P9_14\n\n");
        exit(-1);
     }
     onOffTime = atoi(argv[1]);
@@ -70,7 +70,8 @@ int main(int argc, char *argv[]) {
     *gpio_oe_addr = reg;
     printf("GPIO1 configuration: %X\n", reg);
 
-    printf("Start blinking LED USR3\n");
+    printf("Started toggling GPIO_50\n");
+    //usleep commented out for speed testing without usleep
     while(keepgoing) {
         *gpio_setdataout_addr = GPIO_50;
         usleep(onOffTime);

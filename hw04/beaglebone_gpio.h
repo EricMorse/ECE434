@@ -25,4 +25,6 @@
 #define GPIO_03  (1<<3)
 #define GPIO_07  (1<<7)
 #define GPIO_60  (1<<28)
+#define GPIO_46  (1<<14)
+#define GPIO_47  (1<<15)
 #endif

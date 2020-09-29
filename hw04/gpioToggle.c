@@ -58,11 +58,11 @@ int main(int argc, char *argv[]) {
     gpio_cleardataout_addr2 = gpio_addr2 + GPIO_CLEARDATAOUT;
 
     if(gpio_addr1 == MAP_FAILED) {
-        printf("Unable to map GPIO\n");
+        printf("Unable to map GPIO 1\n");
         exit(1);
     }
     if(gpio_addr2 == MAP_FAILED) {
-        printf("Unable to map GPIO\n");
+        printf("Unable to map GPIO 2\n");
         exit(1);
     }
 
@@ -76,12 +76,12 @@ int main(int argc, char *argv[]) {
 
     printf("Ready for button input\n");
     while(keepgoing) {
-        if(*gpio_datain1 & GPIO_50) {
+        if(*gpio_datain1 & GPIO_47) {
           *gpio_setdataout_addr1 = USR3;
         } else {
            *gpio_cleardataout_addr1 = USR3;
         }
-        if(*gpio_datain2 & GPIO_51) {
+        if(*gpio_datain2 & GPIO_46) {
           *gpio_setdataout_addr2 = USR1;
         } else {
           *gpio_cleardataout_addr2 = USR1;
