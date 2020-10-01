@@ -64,12 +64,12 @@ int main(int argc, char *argv[]) {
     // if mapping fails, check config-pin section of ReadMe.md
     if(gpio_addr1 == MAP_FAILED) {
         printf("Unable to map GPIO 1\n");
-	printf("Consult config-pin section of ReadMe.md\n");
+        printf("Must be run under root\n");
         exit(1);
     }
     if(gpio_addr2 == MAP_FAILED) {
         printf("Unable to map GPIO 2\n");
-	printf("Consult config-pin section of ReadMe.md\n");
+        printf("Must be run under root\n");
         exit(1);
     }
 

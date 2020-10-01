@@ -47,6 +47,9 @@ int main(int argc, char *argv[]) {
     {
       printf("Error: temp1_input file not found\n");
       printf("Program must be run under root\n");
+      printf("or type below into command prompt\n");
+      printf("cd /sys/class/i2c-adapter/i2c-c\n");
+      printf("sudo echo tmp101 0x48 > new device\n");
       return(-1);
     }
     //reads temperature and converts it to Fahrenheit
