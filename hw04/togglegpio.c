@@ -1,6 +1,9 @@
-// Toggles gpio pin as quickly as possible
-// Uses command line arguments for toggle time
-// Sets pin P9_14, aka GPIO_50, as toggle pin
+/*****************************************
+* Created by Eric Morse
+* Toggles gpio pin as quickly as possible
+* Uses command line arguments for toggle time
+* Sets pin P9_14, aka GPIO_50, as toggle pin
+*****************************************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/mman.h>
@@ -53,7 +56,7 @@ int main(int argc, char *argv[]) {
     gpio_oe_addr           = gpio_addr + GPIO_OE;
     gpio_setdataout_addr   = gpio_addr + GPIO_SETDATAOUT;
     gpio_cleardataout_addr = gpio_addr + GPIO_CLEARDATAOUT;
-
+    // if mapping fails, check config-pin section of program in ReadMe.md
     if(gpio_addr == MAP_FAILED) {
         printf("Unable to map GPIO\n");
         exit(1);

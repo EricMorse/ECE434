@@ -30,12 +30,18 @@ int main(int argc, char *argv[]) {
   int read_size;
   int temp;
   double temp2;
+  // attempts to create tmp101 automatically
+  // only works when program is run as root
   system("cd /sys/class/i2c-adapter/i2c-2");
   system("echo tmp101 0x48 > new device");
   signal(SIGINT, signal_handler);
   
   while(keepgoing)
   {
+    /***************************************************
+    * opens file and checks if temp1_input exists.
+    * if it does not exist, follow instructions in ReadMe.md
+    ****************************************************/
     temp_file = fopen("/sys/class/i2c-adapter/i2c-2/2-0048/hwmon/hwmon0/temp1_input", "r");
     if(temp_file == NULL)
     {
@@ -43,15 +49,12 @@ int main(int argc, char *argv[]) {
       printf("Program must be run under root\n");
       return(-1);
     }
-    //while((read_size = read(temp_file, buffer, BUFFER_SIZE)) > 0)
-    //{
-      //temp = write(1, &buffer, read_size);
+    //reads temperature and converts it to Fahrenheit
     fscanf(temp_file, "%d", &temp);
     temp2 = (((float)temp)/1000.0*9.0/5.0)+32;
     printf("Temperature = %f F\n", temp2);
-    //}
     fclose(temp_file);
-    usleep(300000);
+    usleep(300000);    // long usleep to prevent screen from being spammed
   }
   
   return 0;

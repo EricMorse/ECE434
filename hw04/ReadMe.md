@@ -107,4 +107,10 @@ It plays the movie and rotates.  Below is a picture.
 It displays the picture and the text.
 ![Tux](https://github.com/EricMorse/ECE434/tree/master/hw04/tux.JPG)
 
-
+# Config Troubleshooting Section
+Type the commands to configure the gpio ports only if needed
+### For gpioToggle
+config-pin P8_15 gpio
+config-pin P8_16 gpio
+### For toggleGPIO
+config-pin P9_16 gpio

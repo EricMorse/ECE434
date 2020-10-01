@@ -1,5 +1,9 @@
-// sets two pins GPIO_50 and GPIO_51 to be read as button pins
-// when each button is pressed, corresponding USR LED lights up
+/*******************************************
+* Created by Eric MOrse
+* sets two pins GPIO_50 and GPIO_51 to be read as button pins
+* when each button is pressed, corresponding USR LED lights up
+*********************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/mman.h>
@@ -57,12 +61,15 @@ int main(int argc, char *argv[]) {
     gpio_cleardataout_addr1 = gpio_addr1 + GPIO_CLEARDATAOUT;
     gpio_cleardataout_addr2 = gpio_addr2 + GPIO_CLEARDATAOUT;
 
+    // if mapping fails, check config-pin section of ReadMe.md
     if(gpio_addr1 == MAP_FAILED) {
         printf("Unable to map GPIO 1\n");
+	printf("Consult config-pin section of ReadMe.md\n");
         exit(1);
     }
     if(gpio_addr2 == MAP_FAILED) {
         printf("Unable to map GPIO 2\n");
+	printf("Consult config-pin section of ReadMe.md\n");
         exit(1);
     }
 
@@ -72,7 +79,7 @@ int main(int argc, char *argv[]) {
     *gpio_oe_addr1 = reg1;
     // Set USR1 to be an output pin
     reg2 = *gpio_oe_addr2;
-    reg2 &= ~(USR1);
+    reg2 &= ~(USR1);       // Set USR1 bit to 0
 
     printf("Ready for button input\n");
     while(keepgoing) {
