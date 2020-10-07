@@ -33,6 +33,7 @@ bone output has ssh messages cleaned from it
 # Homework 5: Kernel Modules
 
 ### Gpio_test
+This program is located in folder gpio_test1.
 gpio_test is a kernel program that turns off an LED when a button is pressed, and turns it back on when the button is released.
 ###### Setup instructions
 button must be connected to P9_15.
@@ -42,7 +43,30 @@ to run the code, type the following commands:
 make
 sudo insmod gpio_test.ko
 ###### Code halting instructions
-to stop code, run sudo rmmod gpio_test
+to stop the code, run sudo rmmod gpio_test
 ### gpio_test example
-needs to be done
+This program is located in folder gpio_test2
+gpio_test is a kernel program that changes the state of an LED when the corresping button is pushed.
+Two buttons toggle the two LEDs
+###### Setup instructions
+button must be connected to P8_15 and P8_18
+LEDs must be connected to P9_12 and P9_14
+###### Code execution instructions
+to run the code, type the following commands:
+make
+sudo insmod gpio_test.ko
+###### Code halting instructions
+to stop the code, run sudo rmmod gpio_test
 ### LED example
+This program is located in folder led.
+led program blinks two LEDs at different periods.
+The default periods are set to 1000 for P9_14 and 100 for P9_12.
+###### Setup instructions
+LEDs must be connected to P9_12 and P9_14.
+###### Code execution instructions
+To run the code, type the following commands:
+make
+sudo insmod led.ko
+###### Code halting instructions
+To stop the code, run sudo rmmod led
+

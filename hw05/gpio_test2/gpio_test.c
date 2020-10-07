@@ -42,7 +42,7 @@ static irq_handler_t  ebbgpio_irq_handler2(unsigned int irq, void *dev_id, struc
  *  function sets up the GPIOs and the IRQ
  *  @return returns 0 if successful
  */
-static int __init ebbgpio_init1(void){
+static int __init ebbgpio_init(void){
    int result = 0;
    printk(KERN_INFO "GPIO_TEST: Initializing the GPIO_TEST LKM\n");
    // Is the GPIO a valid GPIO number (e.g., the BBB has 4x32 but not all available)
@@ -50,23 +50,38 @@ static int __init ebbgpio_init1(void){
       printk(KERN_INFO "GPIO_TEST: invalid LED1 GPIO\n");
       return -ENODEV;
    }
+   if (!gpio_is_valid(gpioLED2)){
+      printk(KERN_INFO "GPIO_TEST: invalid LED2 GPIO\n");
+      return -ENODEV;
+   }
    // Going to set up the LED. It is a GPIO in output mode and will be on by default
    ledOn1 = true;
+   ledOn2 = true;
    gpio_request(gpioLED1, "sysfs");          // gpioLED is hardcoded to 49, request it
+   gpio_request(gpioLED2, "sysfs");
    gpio_direction_output(gpioLED1, ledOn1);   // Set the gpio to be in output mode and on
+   gpio_direction_output(gpioLED2, ledOn2);
 // gpio_set_value(gpioLED, ledOn);          // Not required as set by line above (here for reference)
    gpio_export(gpioLED1, false);             // Causes gpio49 to appear in /sys/class/gpio
 			                    // the bool argument prevents the direction from being changed
+   gpio_export(gpioLED2, false);
    gpio_request(gpioButton1, "sysfs");       // Set up the gpioButton
+   gpio_request(gpioButton2, "sysfs");
    gpio_direction_input(gpioButton1);        // Set the button GPIO to be an input
+   gpio_direction_input(gpioButton2);
    gpio_set_debounce(gpioButton1, 200);      // Debounce the button with a delay of 200ms
+   gpio_set_debounce(gpioButton2, 200);
    gpio_export(gpioButton1, false);          // Causes gpio115 to appear in /sys/class/gpio
 			                    // the bool argument prevents the direction from being changed
+   gpio_export(gpioButton2, false);
    // Perform a quick test to see that the button is working as expected on LKM load
    printk(KERN_INFO "GPIO_TEST: The button1 state is currently: %d\n", gpio_get_value(gpioButton1));
+   printk(KERN_INFO "GPIO_TEST: The button2 state is currently: %d\n", gpio_get_value(gpioButton2));
    // GPIO numbers and IRQ numbers are not the same! This function performs the mapping for us
    irqNumber1 = gpio_to_irq(gpioButton1);
+   irqNumber2 = gpio_to_irq(gpioButton2);
    printk(KERN_INFO "GPIO_TEST: The button1 is mapped to IRQ: %d\n", irqNumber1);
+   printk(KERN_INFO "GPIO_TEST: The button2 is mapped to IRQ: %d\n", irqNumber2);
    // This next call requests an interrupt line
    result = request_irq(irqNumber1,             // The interrupt number requested
                         (irq_handler_t) ebbgpio_irq_handler1, // The pointer to the handler function below
@@ -74,40 +89,14 @@ static int __init ebbgpio_init1(void){
                         "ebb_gpio_handler",    // Used in /proc/interrupts to identify the owner
                         NULL);                 // The *dev_id for shared interrupt lines, NULL is okay
 
+   result = result || request_irq(irqNumber2,
+			(irq_handler_t) ebbgpio_irq_handler2,
+			IRQF_TRIGGER_RISING,
+			"ebb_gpio_handler",
+			NULL);
+
    printk(KERN_INFO "GPIO_TEST: The interrupt request result is: %d\n", result);
    return result;
-}
-
-static int __init ebbgpio_init2(void){
-  int result = 0;
-  printk(KERN_INFO "GPIO_TEST: Initializing the GPIO_Test2 LKM\n");
-  if (!gpio_is_valid(gpioLED2)){
-    printk(KERN_INFO "GPIO_TEST: invalid LED GPIO\n");
-    return -ENODEV;
-  }
-  ledOn2 = true;
-  gpio_request(gpioLED2, "sysfs");
-  gpio_direction_output(gpioLED2, ledOn2);
-  gpio_export(gpioLED2, false);
-  
-  gpio_request(gpioButton2, "sysfs");
-  gpio_direction_input(gpioButton2);
-  gpio_set_debounce(gpioButton2, 200);
-  gpio_export(gpioButton2, false);
-
-  printk(KERN_INFO "GPIO_TEST: The button2 state is currently: %d\n", gpio_get_value(gpioButton2));
-
-  irqNumber2 = gpio_to_irq(gpioButton2);
-  printk(KERN_INFO "GPIO_TEST: The button2 is mapped to IRQ: %d\n", irqNumber2);
-
-  result = request_irq(irqNumber2,
-                       (irq_handler_t) ebbgpio_irq_handler2,
-                       IRQF_TRIGGER_RISING,
-                       "ebb_gpio_handler",
-                       NULL);
-
-  printk(KERN_INFO "GPIO_TEST: The interrupt2 result is %d\n", result);
-  return result;
 }
 
 /** @brief The LKM cleanup function
@@ -163,6 +152,5 @@ static irq_handler_t ebbgpio_irq_handler2(unsigned int irq2, void *dev_id, struc
 
 /// This next calls are  mandatory -- they identify the initialization function
 /// and the cleanup function (as above).
-module_init(ebbgpio_init1);
-module_init(ebbgpio_init2);
+module_init(ebbgpio_init);
 module_exit(ebbgpio_exit);
