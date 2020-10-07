@@ -15,14 +15,14 @@ Kernel Version = 4.19.94-ti-r50
 
 # Homework 5: Cross-Compiling
 
-### Output of program on host
-Hello, World! Main is execuating at 0x55f8f41f96aa
+### Output of program on host:
+Hello, World! Main is executing at 0x55f8f41f96aa
 This address (0x7ffd98d0ebd0) is in our stack frame
 This address (0x55f7f43fa018) is in our bss section
 This address (0x55f7f43fa010) is in our data section
 
 ### Output of program on bone:
-Hello, World! Main is execuating at 0x4b95ad
+Hello, World! Main is executing at 0x4b95ad
 This address (0xbee1bbe0) is in our stack frame
 This address (0x4ca010) is in our bss section
 This address (0x4ca008) is in our data section
@@ -33,7 +33,16 @@ bone output has ssh messages cleaned from it
 # Homework 5: Kernel Modules
 
 ### Gpio_test
-needs to be done
+gpio_test is a kernel program that turns off an LED when a button is pressed, and turns it back on when the button is released.
+###### Setup instructions
+button must be connected to P9_15.
+LED must be connected to P9_16.
+###### Code execution instructions
+to run the code, type the following commands:
+make
+sudo insmod gpio_test.ko
+###### Code halting instructions
+to stop code, run sudo rmmod gpio_test
 ### gpio_test example
 needs to be done
 ### LED example
