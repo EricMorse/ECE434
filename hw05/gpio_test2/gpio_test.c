@@ -25,14 +25,15 @@ static unsigned int gpioLED2 = 60;       ///< P9_12 (GPIO60)
 static unsigned int gpioButton1 = 47;   ///< P8_15 (GPIO47)
 static unsigned int gpioButton2 = 65 ;    ///< P8_18 (GPIO65)
 static unsigned int irqNumber1;          ///< Used to share the IRQ number within this file
-static unisgned int irqNumber2;
+static unsigned int irqNumber2;
 static unsigned int numberPresses1 = 0;  ///< For information, store the number of button presses
 static unsigned int numberPresses2 = 0;
 static bool	    ledOn1 = 0;          ///< Is the LED on or off? Used to invert its state (off by default)
 static bool         ledOn2 = 0;
 
 /// Function prototype for the custom IRQ handler function -- see below for the implementation
-static irq_handler_t  ebbgpio_irq_handler(unsigned int irq, void *dev_id, struct pt_regs *regs);
+static irq_handler_t  ebbgpio_irq_handler1(unsigned int irq, void *dev_id, struct pt_regs *regs);
+static irq_handler_t  ebbgpio_irq_handler2(unsigned int irq, void *dev_id, struct pt_regs *regs);
 
 /** @brief The LKM initialization function
  *  The static keyword restricts the visibility of the function to within this C file. The __init
@@ -46,7 +47,7 @@ static int __init ebbgpio_init1(void){
    printk(KERN_INFO "GPIO_TEST: Initializing the GPIO_TEST LKM\n");
    // Is the GPIO a valid GPIO number (e.g., the BBB has 4x32 but not all available)
    if (!gpio_is_valid(gpioLED1)){
-      printk(KERN_INFO "GPIO_TEST: invalid LED GPIO\n");
+      printk(KERN_INFO "GPIO_TEST: invalid LED1 GPIO\n");
       return -ENODEV;
    }
    // Going to set up the LED. It is a GPIO in output mode and will be on by default
@@ -87,7 +88,7 @@ static int __init ebbgpio_init2(void){
   ledOn2 = true;
   gpio_request(gpioLED2, "sysfs");
   gpio_direction_output(gpioLED2, ledOn2);
-  gpio_export(gpioLED false);
+  gpio_export(gpioLED2, false);
   
   gpio_request(gpioButton2, "sysfs");
   gpio_direction_input(gpioButton2);
