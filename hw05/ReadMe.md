@@ -7,10 +7,11 @@
 What does -c do?  It tells compiler to not discard comments.  All comments are passed through to the output file, except for comments in directives.
 
 # Homework 5: Installing the Kernel Source
+Uses build_deb.sh method
 ### On host
 Kernel version = 5.4.0-48
 ### On bone
-Kernel Version = 5.4.66-ri-r18
+Kernel Version = 4.19.94-ti-r50
 
 # Homework 5: Cross-Compiling
 
@@ -30,33 +31,9 @@ This address (0x4ca008) is in our data section
 bone output has ssh messages cleaned from it
 
 # Homework 5: Kernel Modules
-### hello output
-[  +0.006892] EBB: Hello world from the BBB LKM!
-[Oct 5 02:20] EBB: Goodbye world from the BBB LKM!
-
-**after passing parameters**
-[Oct 5 02:21] EBB: Hello EricMorse from the BBB LKM!
-[Oct 5 02:22] EBB: Goodbye EricMorse from the BBB LKM!
-
-### ebbchar
-[Oct 5 02:28] EBBCHar: Initializing the EBBChar LKM
-[  +0.000049] EBBChar: registered correctly with major number 238
-[  +0.000141] EBBChar: device class registered correctly
-[  +0.006519] EBBChar: device class created correctly
-[ +11.442904] EBBChar: Device has been opened 1 time(s)
-[  +6.877473] EBBChar: Received 14 characters from the user
-[ +32.393522] EBBChar: Sent 14 characters to the user
-[  +0.000871] EBBChar: Device successfully closed
 
 ### Gpio_test
-gpio_test turns off the LED when the button is pressed, and turns it back on when the button is released.
-The button connects to P9_15 and the LED connects to P9_16.
-###### To run Gpio_test
-run with commands:
-make
-sudo insmod gpio_test.ko
-sudo rmmod gpio_test
-### gpio_test example
-gpio_test2
-### LED example
 needs to be done
+### gpio_test example
+needs to be done
+### LED example
