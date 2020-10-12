@@ -7,7 +7,7 @@
 What does -c do?  It tells compiler to not discard comments.  All comments are passed through to the output file, except for comments in directives.
 
 # Homework 5: Installing the Kernel Source
-Uses build_deb.sh method
+Uses build_deb.sh method.
 ### On host
 Kernel version = 5.4.0-48
 ### On bone
@@ -28,7 +28,7 @@ This address (0x4ca010) is in our bss section
 This address (0x4ca008) is in our data section
 
 ###### Minor additional notes
-bone output has ssh messages cleaned from it
+bone output has ssh messages cleaned from it.
 
 # Homework 5: Kernel Modules
 
@@ -40,23 +40,23 @@ button must be connected to P9_15.
 LED must be connected to P9_16.
 ###### Code execution instructions
 to run the code, type the following commands:
-make
-sudo insmod gpio_test.ko
+make.
+sudo insmod gpio_test.ko.
 ###### Code halting instructions
-to stop the code, run sudo rmmod gpio_test
+to stop the code, run sudo rmmod gpio_test.
 ### gpio_test example
-This program is located in folder gpio_test2
-gpio_test is a kernel program that changes the state of an LED when the corresping button is pushed.
-Two buttons toggle the two LEDs
+This program is located in folder gpio_test2.
+gpio_test is a kernel program that changes the state of an LED when the corresponding button is pushed.
+Two buttons toggle the two LEDs.
 ###### Setup instructions
-button must be connected to P8_15 and P8_18
-LEDs must be connected to P9_12 and P9_14
+button must be connected to P8_15 and P8_18.
+LEDs must be connected to P9_12 and P9_14.
 ###### Code execution instructions
 to run the code, type the following commands:
-make
-sudo insmod gpio_test.ko
+make.
+sudo insmod gpio_test.ko.
 ###### Code halting instructions
-to stop the code, run sudo rmmod gpio_test
+to stop the code, run sudo rmmod gpio_test.
 ### LED example
 This program is located in folder led.
 led program blinks two LEDs at different periods.
@@ -65,8 +65,8 @@ The default periods are set to 1000 for P9_14 and 100 for P9_12.
 LEDs must be connected to P9_12 and P9_14.
 ###### Code execution instructions
 To run the code, type the following commands:
-make
-sudo insmod led.ko
+make.
+sudo insmod led.ko.
 ###### Code halting instructions
-To stop the code, run sudo rmmod led
+To stop the code, run sudo rmmod led.
 
