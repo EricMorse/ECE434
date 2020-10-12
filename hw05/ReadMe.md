@@ -11,7 +11,7 @@ Uses build_deb.sh method
 ### On host
 Kernel version = 5.4.0-48
 ### On bone
-Kernel Version = 4.19.94-ti-r50
+Kernel Version = 5.4.66-ri-r18
 
 # Homework 5: Cross-Compiling
 
