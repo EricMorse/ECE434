@@ -1,3 +1,17 @@
+# hw05 grading
+
+| Points      | Description |
+| ----------- | ----------- |
+|  2 | Project - *I like the python project*
+|  1 | Makefile - *Makefile missing*
+|  4 | Kernel Source
+|  2 | Cross-Compiling
+|  8 | Kernel Modules: hello, ebbchar, gpio_test, led
+|  1 | Extras
+| 18 | **Total**
+
+*My comments are in italics. --may*
+
 # Homework 5: Make
 ### Questions from Part A
 1. Target = app.o
@@ -16,16 +30,20 @@ Kernel Version = 5.4.66-ri-r18
 # Homework 5: Cross-Compiling
 
 ### Output of program on host:
+```
 Hello, World! Main is executing at 0x55f8f41f96aa
 This address (0x7ffd98d0ebd0) is in our stack frame
 This address (0x55f7f43fa018) is in our bss section
 This address (0x55f7f43fa010) is in our data section
+```
 
 ### Output of program on bone:
+```
 Hello, World! Main is executing at 0x4b95ad
 This address (0xbee1bbe0) is in our stack frame
 This address (0x4ca010) is in our bss section
 This address (0x4ca008) is in our data section
+```
 
 ###### Minor additional notes
 bone output has ssh messages cleaned from it.
@@ -39,11 +57,11 @@ gpio_test is a kernel program that turns off an LED when a button is pressed, an
 button must be connected to P9_15.
 LED must be connected to P9_16.
 ###### Code execution instructions
-to run the code, type the following commands:
+To run the code, type the following commands:
 make.
 sudo insmod gpio_test.ko.
 ###### Code halting instructions
-to stop the code, run sudo rmmod gpio_test.
+To stop the code, run sudo rmmod gpio_test.
 ### gpio_test example
 This program is located in folder gpio_test2.
 gpio_test is a kernel program that changes the state of an LED when the corresponding button is pushed.
