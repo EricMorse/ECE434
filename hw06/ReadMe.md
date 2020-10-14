@@ -1,5 +1,5 @@
 # Homework 6: Julia's Youtube Channel
-1.  Where does Julia Cartwright work?
+1.  Where does Julia Cartwright work?  National Instruments
 2.  What is PREEMPT_RT?  PREEMPT_RT makes Linux into a real-time system, and will be eventually incorporated into mainline Linux kernels.
 3.  What is mixed criticality?  Interrupt requests that handle both critical and non-critical requests.
 4.  How can drivers misbehave?  IRQ events are too long to interrupt the scheduler.
