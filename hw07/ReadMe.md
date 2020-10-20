@@ -3,6 +3,7 @@
 BBIO Project information will be updated on wiki.
 BBIO file is mostly finished with the exception of event detection.
 PWM file is finished.
+Pinmux file is briefly started.
 Project is being developed for kernel 4.19 only.
 # Homework 7: Blynk
 ### Description
