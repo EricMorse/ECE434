@@ -1,3 +1,16 @@
+# hw07 grading
+
+| Points      | Description |
+| ----------- | ----------- |
+|  0 | Project Template - *missing*
+|  0 | | Names
+|  0 | | Executive Summary
+| 10 | Blynk - TMP101
+|  4 | Blynk - Etch-a-sketch - extra
+| 14 | **Total**
+
+*My comments are in italics. --may*
+
 
 # Homework 7: Project
 BBIO Project information will be updated on wiki.
