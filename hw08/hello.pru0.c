@@ -17,12 +17,12 @@ void main(void) {
 	for(i=0; i<10000000; i++) {
 		gpio3[GPIO_SETDATAOUT]   = 1<<14;	// Turns the P9_31 LED on
 
-		__delay_cycles(5/5);    	// Wait 1/2 second = 500000000ns
+		__delay_cycles(500000000/5);    	// Wait 1/2 second = 500000000ns
 		//__delay_cycles(0);
 
 		gpio3[GPIO_CLEARDATAOUT] = 1<<14;
 
-		__delay_cycles(5/5); 
+		__delay_cycles(500000000/5); 
 		//__delay_cycles(0);
 
 	}
