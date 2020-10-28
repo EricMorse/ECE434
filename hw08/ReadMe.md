@@ -1,9 +1,12 @@
 # Homework 8: Project  
 BBIO Project information will be updated on wiki.  
 BBIO file is mostly finished with the exception of event detection.  
-PWM file is finished.  
-Pinmux file is briefly started.  
+PWM file is finished.   
+Pinmux file is finished.  
+UART file is about halfway finished.  
 Project is being developed for kernel 4.19 only.  
+ADC file needs to be done.  
+Common file may need to be done.  
 
 # Homework 8: PRU  
 ### TABLE  
@@ -60,13 +63,28 @@ countOn: 2, countOff: 18, count: 20
 countOn: 3, countOff: 17, count: 20  
 countOn: 4, countOff: 16, count: 20  
 munmap succeeded  
+### Installation instructions  
+sh pwm_setup.sh  
+export TARGET=pwm4.pru0  
+make  
 
 # Homework 8: Reading Input at Regular Intevals  
+The file for this program is input.pru0.c  
 tek00021.png is waveform capture of button press.  Green is the button, and yellow is P9_31.  
 There appears to be a 39.62ns delay between the input and output.  
-![button press photo](https://github.com/EricMorse/ECE434/tree/master/hw08/waveforms/tek00021.png)
+![button press photo](https://github.com/EricMorse/ECE434/tree/master/hw08/waveforms/tek00021.png)  
+
+### Installation instructions  
+sh pwm_setup.sh  
+export TARGET=input.pru0  
+make  
+  
 # Homework 8: AnalogWaveGenerator  
 The photo of the sine wave is tek00022.png.  
 The analog wave generator was able to produce a sine wave through GPIO but it had a lot of ripple.  
 Ripple could be removed using a higher order filter, but I used a simple low pass filter.  
-![Sine Wave](https://github.com/EricMorse/ECE434/tree/master/hw08/waveforms/tek00022.png)
+![Sine Wave](https://github.com/EricMorse/ECE434/tree/master/hw08/waveforms/tek00022.png)  
+### Installation instructions  
+sh pwm_setup.sh  
+export TARGET=sine.pru0  
+make  
