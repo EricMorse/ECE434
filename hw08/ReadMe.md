@@ -1,3 +1,20 @@
+# hw08 grading
+
+| Points      | Description |
+| ----------- | ----------- |
+| 14 | PRU
+|  2 | Controlling the PWM Frequency - optional
+|  2 | Reading an Input at Regular Intervals - optional
+|  2 | Analog Wave Generator - optional
+| 20 | **Total**
+
+*My comments are in italics. --may*
+
+*You didn't have to do all the pwm exercises.*
+
+*Well documented.  Very complete.*
+
+
 # Homework 8: Project  
 BBIO Project information will be updated on wiki.  
 BBIO file is mostly finished with the exception of event detection.  
