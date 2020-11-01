@@ -23,7 +23,7 @@ tmp101 takes one additional command line argument that is the number of times yo
 temp.py is a program that logs temperature from a tmp101 sensor to ThingSpeak.  
 The channel is 1214678. Url = https://thingspeak.com/channels/1214678/private_show  
 It only logs temperature once every 15 minutes.  
-![screenshot of thingspeak](https://github.com/EricMorse/tree/master/hw09/screenshot.png)  
+![screenshot of thingspeak](https://github.com/EricMorse/ECE434/tree/master/hw09/screenshot.png)  
   
 ### Installation instructions
 Run setup.sh to export thingspeak credentials.  
